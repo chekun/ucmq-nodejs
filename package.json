@@ -1,0 +1,26 @@
+{
+  "name": "ucmq",
+  "description": "NodeJS wrapper for ucmq",
+  "keywords": [
+    "ucmq",
+    "queue"
+  ],
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chekun/ucmq-nodejs"
+  },
+  "author": {
+    "name": "chekun",
+    "email": "234267695@qq.com"
+  },
+  "contributors": [],
+  "main": "./lib/ucmq",
+  "engines": {
+    "node": ">= 0.6"
+  },
+  "dependencies": {
+    "underscore": ">=1.4.4",
+    "request": ">=2.21.0"
+  }
+}
