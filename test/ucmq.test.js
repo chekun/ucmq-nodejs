@@ -22,11 +22,11 @@ describe('ucmq', function() {
 
     describe('#push', function() {
         it('should return true when enqueue success', function(done) {
-            queue.push('position#1', function(result) {
-                if (result.should.be.true) {
+            queue.push('position#1', function(err) {
+                if (err.should.equal(0)) {
                     done();
                 } else {
-                    done(new Error('Not push successfully.'));
+                    done(new Error('Not push successfully.' + err));
                 }
             });
         });
@@ -34,11 +34,11 @@ describe('ucmq', function() {
 
     describe('#shift', function() {
         it('should return position#1 when success', function(done) {
-            queue.shift(function(result) {
-                if (result.should.equal('position#1')) {
+            queue.shift(function(err, data) {
+                if (err.should.equal(0) && data.should.equal('position#1')) {
                     done();
                 } else {
-                    done(new Error('Not shift successfully.'));
+                    done(new Error('Not shift successfully.' + err));
                 }
             });
         })
@@ -46,11 +46,11 @@ describe('ucmq', function() {
 
     describe('#status', function() {
         it('should not return false when success', function(done) {
-            queue.status(function(result) {
-                if (result.should.be.ok) {
+            queue.status(function(err) {
+                if (err.should.equal(0)) {
                     done();
                 } else {
-                    done(new Error('Get status failed!'));
+                    done(new Error('Get status failed!' + err));
                 }
             });
         });
@@ -58,11 +58,11 @@ describe('ucmq', function() {
 
     describe('#maxQueue', function() {
         it('should return true when success', function(done) {
-            queue.maxQueue(100, function(result) {
-                if (result.should.be.true) {
+            queue.maxQueue(100, function(err) {
+                if (err.should.equal(0)) {
                     done();
                 } else {
-                    done(new Error('MaxQueue failed!'));
+                    done(new Error('MaxQueue failed!' + err));
                 }
             });
         });
@@ -70,11 +70,11 @@ describe('ucmq', function() {
 
     describe('#setDelay', function() {
         it('should return true when success', function(done) {
-            queue.setDelay(100, function(result) {
-                if (result.should.be.true) {
+            queue.setDelay(100, function(err) {
+                if (err.should.equal(0)) {
                     done();
                 } else {
-                    done(new Error('set Delay failed!'));
+                    done(new Error('set Delay failed!' + err));
                 }
             });
         });
@@ -82,11 +82,11 @@ describe('ucmq', function() {
 
     describe('#setWlock', function() {
         it('should return true when success', function(done) {
-            queue.setWlock(100, function(result) {
-                if (result.should.be.true) {
+            queue.setWlock(100, function(err) {
+                if (err.should.equal(0)) {
                     done();
                 } else {
-                    done(new Error('setWlock failed!'));
+                    done(new Error('setWlock failed!' + err));
                 }
             });
         });
@@ -94,11 +94,11 @@ describe('ucmq', function() {
 
     describe('#setSyncTime', function() {
         it('should return true when success', function(done) {
-            queue.setSyncTime(100, function(result) {
-                if (result.should.be.true) {
+            queue.setSyncTime(100, function(err) {
+                if (err.should.equal(0)) {
                     done();
                 } else {
-                    done(new Error('setSyncTime failed!'));
+                    done(new Error('setSyncTime failed!' + err));
                 }
             });
         });
@@ -106,11 +106,11 @@ describe('ucmq', function() {
 
     describe('#reset', function() {
         it('should return true when success', function(done) {
-            queue.reset(function(result) {
-                if (result.should.be.true) {
+            queue.reset(function(err) {
+                if (err.should.equal(0)) {
                     done();
                 } else {
-                    done(new Error('Reset queue failed!'));
+                    done(new Error('Reset queue failed!' + err));
                 }
             });
         });
@@ -118,11 +118,11 @@ describe('ucmq', function() {
 
     describe('#removeQueue', function() {
         it('should return true when success', function(done) {
-            queue.remove(100, function(result) {
-                if (result.should.be.true) {
+            queue.remove(100, function(err) {
+                if (err.should.equal(0)) {
                     done();
                 } else {
-                    done(new Error('removeQUeue failed!'));
+                    done(new Error('removeQUeue failed!' + err));
                 }
             });
         });
